@@ -1,0 +1,18 @@
+//broadcast variable
+
+scala> val broad = sc.broadcast(Array(10,20,30,40,50))
+broad: org.apache.spark.broadcast.Broadcast[Array[Int]] = Broadcast(0)
+
+scala> broad.value
+res10: Array[Int] = Array(10, 20, 30, 40, 50)
+
+
+//Accumulator
+
+scala> sc.parallelize(Array(20,25,30,35,40)).foreach(x => accum.add(x))
+
+scala> accum
+res13: org.apache.spark.util.LongAccumulator = LongAccumulator(id: 0, name: Some(test Accum), value: 150)
+
+scala> accum.value
+res14: Long = 150
